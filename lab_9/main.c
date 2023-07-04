@@ -2,18 +2,18 @@
 
 int compute_min_steps(int x, int y) {
     if (x == y) {
-        return 0;  // Немає потреби в кроках, якщо x = y
+        return 0;  
     }
     else if (y - x <= 2) {
-        return y - x;  // Кількість кроків дорівнює різниці між x та y
+        return y - x;  
     }
     else {
-        int steps = 2;  // Перші два кроки (x+1 та y-1)
-        int current = x + 2;  // Поточна позиція
+        int steps = 2;  
+        int current = x + 2;  
 
         while (current < y) {
-            steps++;  // Збільшуємо лічильник кроків
-            current += steps % 2 == 0 ? steps : steps - 1;  // Обчислюємо наступну позицію
+            steps++;  
+            current += steps % 2 == 0 ? steps : steps - 1;  
         }
 
         return steps;
@@ -23,24 +23,20 @@ int compute_min_steps(int x, int y) {
 int main() {
     int x, y;
 
-    // Зчитуємо значення x та y з клавіатури
-    printf("Введіть значення x: ");
+    printf("Р’РІРµРґС–С‚СЊ Р·РЅР°С‡РµРЅРЅСЏ x: ");
     scanf("%d", &x);
 
-    printf("Введіть значення y: ");
+    printf("Р’РІРµРґС–С‚СЊ Р·РЅР°С‡РµРЅРЅСЏ y: ");
     scanf("%d", &y);
 
-    // Перевіряємо вхідні дані
     if (x >= 0 && y >= 0 && x <= y && y < (1 << 31)) {
-        printf("Некоректні вхідні дані\n");
+        printf("РќРµРєРѕСЂРµРєС‚РЅС– РІС…С–РґРЅС– РґР°РЅС–\n");
         return 0;
     }
 
-    // Обчислюємо мінімальну кількість кроків
     int min_steps = compute_min_steps(x, y);
 
-    // Виводимо результат
-    printf("Мінімальна кількість кроків: %d\n", min_steps);
+    printf("РњС–РЅС–РјР°Р»СЊРЅР° РєС–Р»СЊРєС–СЃС‚СЊ РєСЂРѕРєС–РІ: %d\n", min_steps);
 
     return 0;
 }
