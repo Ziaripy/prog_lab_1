@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Функція для обчислення факторіалу числа
 long long factorial(int n) {
     if (n == 0 || n == 1) {
         return 1;
@@ -11,20 +10,16 @@ long long factorial(int n) {
     }
 }
 
-// Функція для обчислення кількості анаграм
 long long countAnagrams(char word[]) {
     int length = strlen(word);
 
-    // Масив для збереження кількості входжень кожної букви
     int count[26] = { 0 };
 
-    // Підрахунок входжень кожної букви
     for (int i = 0; i < length; i++) {
-        int index = word[i] - 'A';  // Перетворення букви у відповідний індекс
+        int index = word[i] - 'A';  
         count[index]++;
     }
 
-    // Обчислення кількості анаграм за допомогою формули факторіала
     long long totalAnagrams = factorial(length);
     for (int i = 0; i < 26; i++) {
         if (count[i] > 1) {
@@ -37,11 +32,11 @@ long long countAnagrams(char word[]) {
 
 int main() {
     char word[15];
-    printf("Введіть слово: ");
+    printf("Р’РІРµРґС–С‚СЊ СЃР»РѕРІРѕ: ");
     scanf("%s", word);
 
     long long anagramCount = countAnagrams(word);
-    printf("Кількість можливих анаграм: %lld\n", anagramCount);
+    printf("РљС–Р»СЊРєС–СЃС‚СЊ РјРѕР¶Р»РёРІРёС… Р°РЅР°РіСЂР°Рј: %lld\n", anagramCount);
 
     return 0;
 }
