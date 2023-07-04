@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// Функція для обчислення НСД двох чисел
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
@@ -10,29 +9,28 @@ int gcd(int a, int b) {
     return a;
 }
 
-// Функція для обчислення НСК двох чисел
 int lcm(int a, int b) {
     return (a * b) / gcd(a, b);
 }
 
 int main() {
     int r;
-    printf("Введіть кількість чисел р: ");
+    printf("Р’РІРµРґС–С‚СЊ РєС–Р»СЊРєС–СЃС‚СЊ С‡РёСЃРµР» СЂ: ");
     scanf("%d", &r);
-    // Збереження чисел в масиві numbers
+   
     int numbers[r];
-    printf("Введіть %d натуральних чисел, розділених пробілом: ", r);
+    printf("Р’РІРµРґС–С‚СЊ %d РЅР°С‚СѓСЂР°Р»СЊРЅРёС… С‡РёСЃРµР», СЂРѕР·РґС–Р»РµРЅРёС… РїСЂРѕР±С–Р»РѕРј: ", r);
     for (int i = 0; i < r; i++) {
         scanf("%d", &numbers[i]);
     }
 
     int result = numbers[0];
-    // Обчислюється НСК   
+     
     for (int i = 1; i < r; i++) {
         result = lcm(result, numbers[i]);
     }
 
-    printf("Найменше спільне кратне заданих чисел: %d\n", result);
+    printf("РќР°Р№РјРµРЅС€Рµ СЃРїС–Р»СЊРЅРµ РєСЂР°С‚РЅРµ Р·Р°РґР°РЅРёС… С‡РёСЃРµР»: %d\n", result);
 
     return 0;
 }
